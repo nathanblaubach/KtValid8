@@ -1,3 +1,5 @@
+package validators
+
 /**
  * An object to represent the result of parsing and validating a string
  * @param T type of value
@@ -9,5 +11,4 @@
 data class ValidationResult<T>(
     val value: T?,
     val valid: Boolean,
-    val message: String
-)
+    val message: String)

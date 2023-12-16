@@ -1,5 +1,7 @@
 package parsers
 
+import interfaces.IValueParser
+
 /**
  * A parser to parse a String value to a Boolean value
  * @property insensitiveTrueValues case-insensitive String values to accept as Boolean true
@@ -11,7 +13,7 @@ package parsers
 class BooleanParser(
     trueValues: List<String> = listOf("true", "t", "yes", "y"),
     falseValues: List<String> = listOf("false", "f", "no", "n")
-) : Parser<Boolean> {
+) : IValueParser<Boolean> {
     private val insensitiveTrueValues: List<String> = trueValues.map(String::toUpperCase)
     private val insensitiveFalseValues: List<String> = falseValues.map(String::toUpperCase)
 

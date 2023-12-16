@@ -1,10 +1,12 @@
 package parsers
 
+import interfaces.IValueParser
+
 /**
  * A parser to parse a String value to a Int value
  * @constructor Creates a Parser for Int values
  */
-class IntParser : Parser<Int> {
+class IntParser : IValueParser<Int> {
     /**
      * Parses a Int from the given String
      * @param value to parse

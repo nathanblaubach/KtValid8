@@ -1,10 +1,10 @@
-package parsers
+package interfaces
 
 /**
  * A parser to parse a String value to a given type
  * @param T the type of the value to parse
  */
-interface Parser<T> {
+interface IValueParser<T> {
     /**
      * Parses a value from the given String
      * @param value to parse

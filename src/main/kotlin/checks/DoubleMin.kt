@@ -1,11 +1,13 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a Double complies with a minimum
  * @property minimum the maximum Double
  * @constructor Creates a Check for a minimum Double
  */
-class DoubleMin(private val minimum: Double): Check<Double> {
+class DoubleMin(private val minimum: Double): IValueChecker<Double> {
     /**
      * Determines whether the given value violates the minimum
      * @param value to check

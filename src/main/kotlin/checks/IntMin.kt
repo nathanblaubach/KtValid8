@@ -1,11 +1,13 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a Int complies with a minimum
  * @property minimum the maximum Int
  * @constructor Creates a Check for a minimum Int
  */
-class IntMin(private val minimum: Int) : Check<Int> {
+class IntMin(private val minimum: Int) : IValueChecker<Int> {
     /**
      * Determines whether the given value violates the minimum
      * @param value to check

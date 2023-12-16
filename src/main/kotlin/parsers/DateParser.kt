@@ -1,5 +1,6 @@
 package parsers
 
+import interfaces.IValueParser
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -11,7 +12,7 @@ import java.util.*
  */
 class DateParser(
     validFormatStrings: List<String> = listOf("MM/dd/yyyy", "yyyy-MM-dd")
-) : Parser<Date> {
+) : IValueParser<Date> {
     private val validFormats = validFormatStrings
         .map { SimpleDateFormat(it) }
         .also { it.forEach { format -> format.isLenient = false } }

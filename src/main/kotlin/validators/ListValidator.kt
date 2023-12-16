@@ -1,6 +1,6 @@
 package validators
 
-import ValidationResult
+import interfaces.IValueValidator
 
 /**
  * A validator to parse and validate a String value
@@ -14,7 +14,7 @@ class ListValidator<T>(
     private val required: Boolean,
     private val delimiter: String,
     private val validator: ValueValidator<T>
-): Validator<List<T?>> {
+): IValueValidator<List<T?>> {
     private fun getNonBlankValue(value: String?) = if (value?.isBlank() == false) value else null
 
     /**
@@ -30,14 +30,18 @@ class ListValidator<T>(
      */
     override fun validate(id: String, value: String?): ValidationResult<List<T?>> {
         val nonBlankValue = getNonBlankValue(value)
-            ?: return ValidationResult(null, !this.required, if (this.required) "$id: $value: A value is required" else "$id: $value: No value is required")
+            ?: return ValidationResult(
+                null,
+                !this.required,
+                if (this.required) "$id: $value: A value is required" else "$id: $value: No value is required"
+            )
 
         val results = nonBlankValue
             .split(this.delimiter)
             .map{ this.validator.validate(id, it) }
 
         return ValidationResult(
-            results.map{ it.value },
+            results.map { it.value },
             results.all { it.valid },
             results.joinToString("\n") { it.message }
         )

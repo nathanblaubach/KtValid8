@@ -1,5 +1,6 @@
 package checks
 
+import interfaces.IValueChecker
 import java.util.Date
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date
  * @property maximum the maximum Date
  * @constructor Creates a Check for a maximum Date
  */
-class DateMax(private val maximum: Date): Check<Date> {
+class DateMax(private val maximum: Date): IValueChecker<Date> {
     /**
      * Determines whether the given value violates the maximum
      * @param value to check

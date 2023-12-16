@@ -1,12 +1,14 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a value is in a list
  * @param T type of value
  * @property validValues the list of valid values
  * @constructor Creates a Check for a list of valid values
  */
-class InList<T>(private val validValues: List<T>) : Check<T> {
+class InList<T>(private val validValues: List<T>) : IValueChecker<T> {
     /**
      * Determines whether the given value is not in the valid value list
      * @param value to check

@@ -1,10 +1,10 @@
-package checks
+package interfaces
 
 /**
  * A check to make against a value of a given type
  * @param T the type of the value to check
  */
-interface Check<T> {
+interface IValueChecker<T> {
     /**
      * Determines whether the given value fails the check
      * @param value to check

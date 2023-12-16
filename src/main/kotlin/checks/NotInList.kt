@@ -1,12 +1,14 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a value is not in a list
  * @param T type of value
  * @property invalidValues the list of invalid values
  * @constructor Creates a Check for a list of invalid values
  */
-class NotInList<T> (private val invalidValues: List<T>) : Check<T> {
+class NotInList<T> (private val invalidValues: List<T>) : IValueChecker<T> {
     /**
      * Determines whether the given value is in the invalid value list
      * @param value to check

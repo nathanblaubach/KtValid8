@@ -1,8 +1,8 @@
 package validators
 
-import ValidationResult
-import checks.Check
-import parsers.Parser
+import interfaces.IValueChecker
+import interfaces.IValueValidator
+import interfaces.IValueParser
 
 /**
  * A validator to parse and validate a String value to a value of type T
@@ -14,9 +14,9 @@ import parsers.Parser
  */
 class ValueValidator<T>(
     private val required: Boolean,
-    private val parser: Parser<T>,
-    private val checks: List<Check<T>> = ArrayList()
-): Validator<T> {
+    private val parser: IValueParser<T>,
+    private val checks: List<IValueChecker<T>> = ArrayList()
+): IValueValidator<T> {
     private fun getNonBlankValue(value: String?) = if (value?.isBlank() == false) value else null
 
     /**
@@ -33,7 +33,11 @@ class ValueValidator<T>(
      */
     override fun validate(id: String, value: String?): ValidationResult<T> {
         val nonBlankValue = getNonBlankValue(value)
-            ?: return ValidationResult(null, !this.required, if (this.required) "$id: $value: A value is required" else "$id: $value: No value is required")
+            ?: return ValidationResult(
+                null,
+                !this.required,
+                if (this.required) "$id: $value: A value is required" else "$id: $value: No value is required"
+            )
 
         val parsedValue = this.parser.parse(nonBlankValue)
             ?: return ValidationResult(null, false, "$id: $value: Could not parse value")

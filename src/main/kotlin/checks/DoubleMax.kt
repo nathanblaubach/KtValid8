@@ -1,11 +1,13 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a Double complies with a maximum
  * @property maximum the maximum Double
  * @constructor Creates a Check for a maximum Double
  */
-class DoubleMax(private val maximum: Double): Check<Double> {
+class DoubleMax(private val maximum: Double): IValueChecker<Double> {
     /**
      * Determines whether the given value violates the maximum
      * @param value to check

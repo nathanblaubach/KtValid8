@@ -1,11 +1,13 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a Long complies with a maximum
  * @property maximum the maximum Long
  * @constructor Creates a Check for a maximum Long
  */
-class LongMax(private val maximum: Long): Check<Long> {
+class LongMax(private val maximum: Long): IValueChecker<Long> {
     /**
      * Determines whether the given value violates the maximum
      * @param value to check

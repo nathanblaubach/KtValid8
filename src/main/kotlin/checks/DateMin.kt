@@ -1,5 +1,6 @@
 package checks
 
+import interfaces.IValueChecker
 import java.util.Date
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date
  * @property minimum the maximum Date
  * @constructor Creates a Check for a minimum Date
  */
-class DateMin(private val minimum: Date): Check<Date> {
+class DateMin(private val minimum: Date): IValueChecker<Date> {
     /**
      * Determines whether the given value violates the minimum
      * @param value to check

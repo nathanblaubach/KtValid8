@@ -1,11 +1,13 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a Long complies with a minimum
  * @property minimum the maximum Long
  * @constructor Creates a Check for a minimum Long
  */
-class LongMin(private val minimum: Long): Check<Long> {
+class LongMin(private val minimum: Long): IValueChecker<Long> {
     /**
      * Determines whether the given value violates the minimum
      * @param value to check

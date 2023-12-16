@@ -1,12 +1,12 @@
-package validators
+package interfaces
 
-import ValidationResult
+import validators.ValidationResult
 
 /**
  * A validator to parse and validate a String value
  * @param T the type of the value to parse and validate
  */
-interface Validator<T> {
+interface IValueValidator<T> {
     /**
      * Parses a value from the given String
      * @param id of the value to parse and validate

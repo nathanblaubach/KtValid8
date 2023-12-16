@@ -1,12 +1,14 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a value complies with a minimum String length
  * @param T type of value
  * @property minimum the minimum length of the string representation of the value
  * @constructor Creates a Check for minimum String length
  */
-class LengthMin<T>(private val minimum: Int) : Check<T> {
+class LengthMin<T>(private val minimum: Int) : IValueChecker<T> {
     /**
      * Determines whether the given value violates the minimum
      * @param value to check

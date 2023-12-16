@@ -1,11 +1,13 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that an Int complies with a maximum
  * @property maximum the maximum Int
  * @constructor Creates a Check for a maximum Int
  */
-class IntMax(private val maximum: Int): Check<Int> {
+class IntMax(private val maximum: Int): IValueChecker<Int> {
     /**
      * Determines whether the given value violates the maximum
      * @param value to check

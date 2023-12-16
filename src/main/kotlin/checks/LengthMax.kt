@@ -1,12 +1,14 @@
 package checks
 
+import interfaces.IValueChecker
+
 /**
  * A check to ensure that a value complies with a maximum String length
  * @param T type of value
  * @property maximum the maximum length of the string representation of the value
  * @constructor Creates a Check for maximum String length
  */
-class LengthMax<T>(private val maximum: Int) : Check<T> {
+class LengthMax<T>(private val maximum: Int) : IValueChecker<T> {
     /**
      * Determines whether the given value violates the maximum length
      * @param value to check

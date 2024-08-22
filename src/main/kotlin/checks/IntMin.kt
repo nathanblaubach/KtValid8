@@ -3,7 +3,7 @@ package checks
 import interfaces.IValueChecker
 
 /**
- * A check to ensure that a Int complies with a minimum
+ * A check to ensure that an Int complies with a minimum
  * @property minimum the maximum Int
  * @constructor Creates a Check for a minimum Int
  */

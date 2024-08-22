@@ -8,9 +8,9 @@ import interfaces.IValueParser
  */
 class IntParser : IValueParser<Int> {
     /**
-     * Parses a Int from the given String
+     * Parses an Int from the given String
      * @param value to parse
-     * @return the parsed Int, null if could not parse
+     * @return the parsed Int, null if it could not parse
      */
     override fun parse(value: String): Int? = value.toIntOrNull()
 }

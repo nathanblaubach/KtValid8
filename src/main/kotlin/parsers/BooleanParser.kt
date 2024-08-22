@@ -20,7 +20,7 @@ class BooleanParser(
     /**
      * Parses a Boolean from the given String
      * @param value to parse
-     * @return the parsed Boolean, null if could not parse
+     * @return the parsed Boolean, null if it could not parse
      */
     override fun parse(value: String): Boolean? = when (value.toUpperCase()) {
         in insensitiveTrueValues -> true

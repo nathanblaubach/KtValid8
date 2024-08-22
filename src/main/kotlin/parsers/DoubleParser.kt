@@ -10,7 +10,7 @@ class DoubleParser : IValueParser<Double> {
     /**
      * Parses a Double from the given String
      * @param value to parse
-     * @return the parsed Double, null if could not parse
+     * @return the parsed Double, null if it could not parse
      */
     override fun parse(value: String): Double? = value.toDoubleOrNull()
 }

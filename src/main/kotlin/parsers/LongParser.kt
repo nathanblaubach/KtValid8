@@ -10,7 +10,7 @@ class LongParser : IValueParser<Long> {
     /**
      * Parses a Long from the given String
      * @param value to parse
-     * @return the parsed Long, null if could not parse
+     * @return the parsed Long, null if it could not parse
      */
     override fun parse(value: String): Long? = value.toLongOrNull()
 }

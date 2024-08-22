@@ -14,15 +14,15 @@ class BooleanParser(
     trueValues: List<String> = listOf("true", "t", "yes", "y"),
     falseValues: List<String> = listOf("false", "f", "no", "n")
 ) : IValueParser<Boolean> {
-    private val insensitiveTrueValues: List<String> = trueValues.map(String::toUpperCase)
-    private val insensitiveFalseValues: List<String> = falseValues.map(String::toUpperCase)
+    private val insensitiveTrueValues: List<String> = trueValues.map(String::uppercase)
+    private val insensitiveFalseValues: List<String> = falseValues.map(String::uppercase)
 
     /**
      * Parses a Boolean from the given String
      * @param value to parse
      * @return the parsed Boolean, null if it could not parse
      */
-    override fun parse(value: String): Boolean? = when (value.toUpperCase()) {
+    override fun parse(value: String): Boolean? = when (value.uppercase()) {
         in insensitiveTrueValues -> true
         in insensitiveFalseValues -> false
         else -> null

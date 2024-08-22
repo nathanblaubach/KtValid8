@@ -43,7 +43,7 @@ class ValueValidator<T>(
             ?: return ValidationResult(null, false, "$id: $value: Could not parse value")
 
         return this.checks.firstOrNull { it.fails(parsedValue) }
-            ?.let { ValidationResult<T>(null, false, it.errorMessage(parsedValue)) }
+            ?.let { ValidationResult(null, false, it.errorMessage(parsedValue)) }
             ?: ValidationResult(parsedValue, true, "$id: $value: Successfully parsed to $parsedValue")
     }
 }

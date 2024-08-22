@@ -22,7 +22,11 @@ class DateParser(
      * @param value to parse
      * @return the parsed Date, null if it could not parse
      */
-    override fun parse(value: String): Date? = this.validFormats
-        .mapNotNull{ try { it.parse(value) } catch (ex: Exception) { null } }
-        .firstOrNull()
+    override fun parse(value: String): Date? = this.validFormats.firstNotNullOfOrNull {
+        try {
+            it.parse(value)
+        } catch (ex: Exception) {
+            null
+        }
+    }
 }
